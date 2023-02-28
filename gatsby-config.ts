@@ -13,14 +13,14 @@ const config: GatsbyConfig = {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": "./images/"
+      "path": "./src/images/"
     },
     __key: "images"
   }, {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
-      "path": "./pages/"
+      "path": "./src/pages/"
     },
     __key: "pages"
   }]
