@@ -16,19 +16,20 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.12",
+    "@heroicons/react": "^2.0.16",
     "@mdx-js/react": "^2.3.0",
-    "bootstrap": "^5.2.3",
     "gatsby": "^5.7.0",
     "gatsby-plugin-google-gtag": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-plugin-manifest": "^5.7.0",
     "gatsby-plugin-mdx": "^5.7.0",
+    "gatsby-plugin-postcss": "^6.7.0",
     "gatsby-plugin-sharp": "^5.7.0",
     "gatsby-plugin-sitemap": "^6.7.0",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-foundation": "^0.9.7"
   },
@@ -36,6 +37,9 @@
     "@types/node": "^18.14.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.2.7",
     "typescript": "^4.9.5"
   }
 }

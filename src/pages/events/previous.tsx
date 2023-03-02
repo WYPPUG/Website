@@ -1,23 +1,58 @@
+import { graphql, PageProps } from "gatsby";
 import React from "react"
+import Event from "../../components/event";
+import EventList from "../../components/eventslist";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Col, Container, Nav, Navbar, NavDropdown, Row } from 'react-bootstrap'
 import Layout from '../../components/layout';
 
-const App: React.FunctionComponent = () => {
-  return (
-    <Layout>
 
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col md={6}>
-            <strong>We're a brand-new group so we've not had any sessions yet!</strong>
-            <p/>
-            See <a href="/events/upcoming">upcoming events</a> for details of our upcoming sessions.
-          </Col></Row>
-      </Container>
+const App: React.FunctionComponent<PageProps<Queries.EventQueryQuery>> = ({ data }) => {
+  return (
+    <Layout title="Previous sessions">
+
+{data.allMdx.nodes.length && (
+<EventList data={data}/>
+) || (
+
+  <p>
+  We're a brand-new group so we've not had any sessions yet!
+  See <a href="/events/upcoming">upcoming events</a> for details of our upcoming sessions.
+  </p>
+)}
+
     </Layout>
   )
 }
 
 export default App
+
+
+export const query = graphql`
+query EventQuery {
+  allMdx(
+    sort: {frontmatter: {startDate: ASC}}
+    filter: {isFuture: {eq:false}}
+  ) {
+    nodes {
+      id
+      isFuture,
+      frontmatter {
+        title
+        summary
+        startDate
+        endDate
+        displayDate
+        preMeetingLinks { 
+          url
+          name
+        }
+        postMeetingLinks { 
+          url
+          name
+        }
+      }
+      body
+    }
+  }
+}
+`
