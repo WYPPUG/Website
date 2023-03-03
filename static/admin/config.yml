@@ -3,7 +3,9 @@ backend:
   repo: WYPPUG/Website
   branch: main
   site_domain: wyppug.org.uk
+  open_authoring: true
 
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: /assets
 

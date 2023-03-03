@@ -2,9 +2,7 @@
 
 This is the source for the website at [https://www.wyppug.org.uk](https://www.wyppug.org.uk)
 
-The easiest way to edit the site is using the [CMS at https://www.wyppug.org.uk/admin/](https://www.wyppug.org.uk/admin/) however this requires commit access to this repo.
-
-Other contributors without commit access may submit a PR.
+The easiest way to edit the site is using the [CMS at https://www.wyppug.org.uk/admin/](https://www.wyppug.org.uk/admin/). You can use this even if you don't have commit access - a PR will be submitted.
 
 ## How this site works.
 
