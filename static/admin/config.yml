@@ -2,6 +2,7 @@ backend:
   name: github
   repo: WYPPUG/Website
   branch: main
+  site_domain: www.wyppug.org.uk
 
 media_folder: static/assets
 public_folder: /assets

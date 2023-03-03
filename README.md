@@ -1,49 +1,15 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# WYPPUG Website
 
-## 🚀 Quick start
+This is the source for the website at [https://www.wyppug.org.uk](https://www.wyppug.org.uk)
 
-1.  **Create a Gatsby site.**
+The easiest way to edit the site is using the [CMS at https://www.wyppug.org.uk/admin/](https://www.wyppug.org.uk/admin/) however this requires commit access to this repo.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+Other contributors without commit access may submit a PR.
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+## How this site works.
 
-2.  **Start developing.**
+This site is generated using Gatsby static site engine.
 
-    Navigate into your new site’s directory and start it up.
+A Netlify CMS is configured to allow easy editing of some content. Any content that is exposed via the CMS is in the /data folder. Netlify CMS pushes the changes directly to the GitHub repo.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+Whenever something changes in the repo, Github Actions builds the site using Gatsby and deploys the results to Github Pages.
