@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
   },
 
   graphqlTypegen: true,
-  plugins: ["gatsby-plugin-postcss",
+  plugins: ["gatsby-plugin-netlify-cms", "gatsby-plugin-postcss",
     {
       resolve: `gatsby-source-filesystem`,
       options: {

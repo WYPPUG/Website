@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: WYPPUG/Website
+  branch: main
+
+media_folder: static/assets
+public_folder: /assets
+
+logo_url: /images/logo-wide.png
+
+collections:
+  - name: events
+    label: events
+    folder: src/data/events
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: true
+    sortable_fields: ['title', 'startDate']
+    summary: "{{startDate}} - {{title}}"
+    view_groups:
+      - label: Year
+        field: startDate
+        pattern: \d{4}
+    fields:
+      - { name: title, label: Title }
+      - { name: startDate, label: Start Date, widget: datetime }
+      - { name: endDate, label: End Date, widget: datetime }
+      - { name: displayDate, label: Display Date, required: false }
+      - { name: location, label: Location }
+      - { name: summary, label: Summary }
+      - { name: body, label: Body, widget: markdown }
+      - name: preMeetingLinks
+        label: "Pre-meeting links"
+        required: false
+        widget: list
+        summary: "{{name}} - {{url}}"
+        fields: 
+          - {label: Name, name: name}
+          - {label: URL, name: url, required: false}
+      - name: postMeetingLinks
+        label: "Post-meeting links"
+        required: false
+        widget: list
+        summary: "{{name}} - {{url}}"
+        fields: 
+          - {label: Name, name: name}
+          - {label: URL, name: url, required: false}
+           

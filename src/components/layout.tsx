@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from "react"
 
 import '../assets/main.css'
 
-import logo from "../images/logo-small.svg"
+import logo from "../images/logo-wide.png"
 import { Dialog, Popover } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
