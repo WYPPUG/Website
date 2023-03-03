@@ -12,6 +12,16 @@ public_folder: /assets
 logo_url: /images/logo-wide.png
 
 collections:
+  - name: pages
+    label: Pages
+    files: 
+      - label: Contact
+        name: contact
+        file: src/data/pages/contact.mdx
+        format: frontmatter
+        fields:
+          - { name: body, label: Body, widget: markdown }
+
   - name: events
     label: events
     folder: src/data/events
