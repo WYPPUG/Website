@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: WYPPUG/Website
-  branch: main
+  branch: netlify-cms-extension
   site_domain: wyppug.org.uk
   open_authoring: true
 
@@ -14,17 +14,17 @@ logo_url: /images/logo-wide.png
 collections:
   - name: pages
     label: Pages
-    files: 
-      - label: Contact
-        name: contact
-        file: src/data/pages/contact.mdx
-        format: frontmatter
-        fields:
-          - { name: body, label: Body, widget: markdown }
-
+    folder: src/pages
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: true
+    fields:
+      - { name: title, label: title }
+      - { name: body, label: Body, widget: markdown }
   - name: events
-    label: events
-    folder: src/data/events
+    label: Events
+    folder: src/pages/events
     extension: mdx
     format: frontmatter
     create: true
