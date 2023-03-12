@@ -10,7 +10,7 @@ const App: React.FunctionComponent<PageProps<Queries.EventQueryQuery>> = ({ data
   return (
     <Layout title="Previous sessions">
 
-{data.allMdx.nodes.length && (
+{data.allFile.edges.length && (
 <EventList data={data}/>
 ) || (
 
@@ -29,29 +29,34 @@ export default App
 
 export const query = graphql`
 query EventQuery {
-  allMdx(
-    sort: {frontmatter: {startDate: ASC}}
-    filter: {isFuture: {eq:false}}
+  allFile(
+    sort: {childMdx: {frontmatter: {startDate: ASC}}}
+    filter: {sourceInstanceName: {eq: "mdxevents"}, childMdx: {isFuture: {eq: false}}}
   ) {
-    nodes {
-      id
-      isFuture,
-      frontmatter {
-        title
-        summary
-        startDate
-        endDate
-        displayDate
-        preMeetingLinks { 
-          url
-          name
-        }
-        postMeetingLinks { 
-          url
-          name
+    edges {
+      node {
+        id
+        childMdx {
+          id
+          isFuture
+          frontmatter {
+            title
+            summary
+            startDate
+            endDate
+            displayDate
+            preMeetingLinks {
+              url
+              name
+            }
+            postMeetingLinks {
+              url
+              name
+            }
+          }
+          body
         }
       }
-      body
     }
   }
 }

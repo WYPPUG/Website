@@ -24,29 +24,34 @@ export default App
 
 export const query = graphql`
 query EventQuery {
-  allMdx(
-    sort: {frontmatter: {startDate: ASC}}
-    filter: {isFuture: {eq:true}}
+  allFile(
+    sort: {childMdx: {frontmatter: {startDate: ASC}}}
+    filter: {sourceInstanceName: {eq: "mdxevents"}, childMdx: {isFuture: {eq: true}}}
   ) {
-    nodes {
-      id
-      isFuture,
-      frontmatter {
-        title
-        summary
-        startDate
-        endDate
-        displayDate
-        preMeetingLinks { 
-          url
-          name
-        }
-        postMeetingLinks { 
-          url
-          name
+    edges {
+      node {
+        id
+        childMdx {
+          id
+          isFuture
+          frontmatter {
+            title
+            summary
+            startDate
+            endDate
+            displayDate
+            preMeetingLinks {
+              url
+              name
+            }
+            postMeetingLinks {
+              url
+              name
+            }
+          }
+          body
         }
       }
-      body
     }
   }
 }

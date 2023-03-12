@@ -14,7 +14,7 @@ logo_url: /images/logo-wide.png
 collections:
   - name: pages
     label: Pages
-    folder: src/pages
+    folder: src/content/pages
     extension: mdx
     format: frontmatter
     create: true
@@ -25,7 +25,7 @@ collections:
       - { name: body, label: Body, widget: markdown }
   - name: events
     label: Events
-    folder: src/pages/events
+    folder: src/content/events
     extension: mdx
     format: frontmatter
     create: true
