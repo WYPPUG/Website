@@ -19,6 +19,7 @@ collections:
     format: frontmatter
     create: true
     delete: true
+    summary: "{{title}}"
     fields:
       - { name: title, label: title }
       - { name: body, label: Body, widget: markdown }
