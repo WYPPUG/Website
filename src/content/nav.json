@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "label": "Contact",
+      "url": "/contact"
+    },
+    {
+      "label": "Another",
+      "url": "/another"
+    }
+  ]
+}
