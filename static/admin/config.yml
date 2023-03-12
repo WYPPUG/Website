@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: WYPPUG/Website
-  branch: netlify-cms-extension
+  branch: main
   site_domain: wyppug.org.uk
   open_authoring: true
 
