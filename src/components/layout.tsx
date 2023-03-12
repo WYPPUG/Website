@@ -5,13 +5,9 @@ import '../assets/main.css'
 import logo from "../images/logo-wide.png"
 import { Dialog, Popover } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import NavData from '../content/nav.json'
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Upcoming Sessions', href: '/events/upcoming' },
-  { name: 'Previous Sessions', href: '/events/previous' },
-  { name: 'Contact', href: '/contact' },
-]
+const navigation : {label: string, url: string}[] = NavData.items;
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -49,8 +45,8 @@ const Layout: React.FunctionComponent<{ children: ReactNode, title: string, hide
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
 
             {navigation.map((item) => (
-              <a href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
+              <a href={item.url} className="text-sm font-semibold leading-6 text-gray-900">
+                {item.label}
               </a>
             ))}
           </Popover.Group>
@@ -87,10 +83,10 @@ const Layout: React.FunctionComponent<{ children: ReactNode, title: string, hide
 
                   {navigation.map((item) => (
                     <a
-                      href={item.href}
+                      href={item.url}
                       className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
-                      {item.name}
+                      {item.label}
 
                     </a>
                   ))}

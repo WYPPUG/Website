@@ -12,6 +12,20 @@ public_folder: /assets
 logo_url: /images/logo-wide.png
 
 collections:
+  - name: nav
+    label: nav
+    files: 
+      - name: nav
+        file: src/content/nav.json
+        label: Nav
+        fields:
+          - name: items
+            widget: list
+            fields:
+              - name: label
+                required: true
+              - name: url
+                required: true
   - name: pages
     label: Pages
     folder: src/content/pages
