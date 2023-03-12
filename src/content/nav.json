@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "label": "Home", "url": "/" },
+    { "label": "Upcoming Sessions", "url": "/events/upcoming" },
+    { "label": "Previous Sessions", "url": "/events/previous" },
+    { "label": "Contact", "url": "/contact" }
+  ]
+}

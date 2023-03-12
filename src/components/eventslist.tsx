@@ -17,11 +17,11 @@ const EventList: React.FunctionComponent<{data:Queries.EventQueryQuery}> = ({dat
   return (
     <>
               
-      {data.allMdx.nodes.map(n => (
-        <Event title={n.frontmatter?.title ?? "TBC"} 
-          location="TBC" date={(n.frontmatter?.displayDate ?? formatDate(n.frontmatter?.startDate) ?? "TBC") + (!n.frontmatter?.displayDate && n.frontmatter?.endDate ? " - " + formatDate(n.frontmatter?.endDate) : "") }
-          description={n.frontmatter?.summary ?? ""}
-          links={(n.isFuture ? n.frontmatter?.preMeetingLinks: n.frontmatter?.postMeetingLinks)}
+      {data.allFile.edges.map(n => (
+        <Event title={n.node.childMdx?.frontmatter?.title ?? "TBC"} 
+          location="TBC" date={(n.node.childMdx?.frontmatter?.displayDate ?? formatDate(n.node.childMdx?.frontmatter?.startDate) ?? "TBC") + (!n.node.childMdx?.frontmatter?.displayDate && n.node.childMdx?.frontmatter?.endDate ? " - " + formatDate(n.node.childMdx?.frontmatter?.endDate) : "") }
+          description={n.node.childMdx?.frontmatter?.summary ?? ""}
+          links={(n.node.childMdx?.isFuture ? n.node.childMdx?.frontmatter?.preMeetingLinks: n.node.childMdx?.frontmatter?.postMeetingLinks)}
         />
       ))}
       

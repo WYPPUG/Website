@@ -12,19 +12,34 @@ public_folder: /assets
 logo_url: /images/logo-wide.png
 
 collections:
+  - name: nav
+    label: nav
+    files: 
+      - name: nav
+        file: src/content/nav.json
+        label: Nav
+        fields:
+          - name: items
+            widget: list
+            fields:
+              - name: label
+                required: true
+              - name: url
+                required: true
   - name: pages
     label: Pages
-    files: 
-      - label: Contact
-        name: contact
-        file: src/data/pages/contact.mdx
-        format: frontmatter
-        fields:
-          - { name: body, label: Body, widget: markdown }
-
+    folder: src/content/pages
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: true
+    summary: "{{title}}"
+    fields:
+      - { name: title, label: title }
+      - { name: body, label: Body, widget: markdown }
   - name: events
-    label: events
-    folder: src/data/events
+    label: Events
+    folder: src/content/events
     extension: mdx
     format: frontmatter
     create: true

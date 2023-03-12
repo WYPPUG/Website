@@ -1,6 +1,7 @@
-import { graphql } from "gatsby"
+import { CreateSchemaCustomizationArgs, GatsbyNode, graphql } from "gatsby"
+import path from "path"
 
-export function createSchemaCustomization({ actions, schema, getNode }) {
+export const createSchemaCustomization : GatsbyNode["createSchemaCustomization"] = ({ actions, schema, getNode }) => {
   actions.createTypes([
     schema.buildObjectType({
       name: 'Mdx',
@@ -15,46 +16,50 @@ export function createSchemaCustomization({ actions, schema, getNode }) {
   ])
 }
 
-/*
-const async function createPages() {
-
-}
-
-export const createPages async ({ graphql :any, actions: any, reporter:any }) => void = ({ graphql, actions, reporter } {
-  const { createPage } = actions;
-
-  const result = await graphql(`
-  {
-    allMdx {
-      nodes {
-        internal {
-          contentFilePath
-        }
-        parent {
-          ... on File {
-            name
+export const createPages : GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+  const result : any = await graphql(`
+  query PagesQuery {
+    allFile(
+      filter: {
+        sourceInstanceName: {eq: "mdxpages"}
+        childMdx:{id:{ne: null}}
+      }
+    ) {
+      edges {
+        node {
+          internal {
+            contentFilePath
+          }
+          id
+          name
+          childMdx {
+            internal {
+              contentFilePath
+            }
+            id
+            isFuture
+            frontmatter {
+              title
+            }
+            body
           }
         }
       }
     }
   }
   `)
-
   if (result.errors) {
-    reporter.panicOnBuild('Error loading MDX result', result.errors)
+      reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
   }
+  
+  const pages = result.data?.allFile.edges;
 
-  const posts = result.data.allMdx.nodes
-
-  // you'll call `createPage` for each result
-  posts.forEach(node => {
-    createPage({
-      path: `/events/event/${node.parent.name}`,
-      // Provide the path to the MDX content file so webpack can pick it up and transform it into JSX
-      component: node.internal.contentFilePath,
-      // You can use the values in this context in
-      // our page layout component
-      context: { },
-    })
+  pages.forEach( (edge:any) => {
+      createPage({
+          path: `/${edge.node.name}`,
+          component: path.resolve('./src/components/mdxlayout.tsx') + `?__contentFilePath=${edge.node.childMdx.internal.contentFilePath}`,
+          context: { title: edge.node.childMdx.frontmatter.title },
+      })
   })
-}*/
+}

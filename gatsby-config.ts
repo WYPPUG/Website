@@ -13,15 +13,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `events`,
-        path: `${__dirname}/src/data/events`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pagedata`,
-        path: `${__dirname}/src/data/pages`,
+        name: `mdxevents`,
+        path: `${__dirname}/src/content/events`,
       },
     },
     `gatsby-plugin-mdx`,
@@ -44,6 +37,14 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdxpages",
+        path: "./src/content/pages/",
+      },
+      __key: "mdxpages",
     },
   ],
 };
