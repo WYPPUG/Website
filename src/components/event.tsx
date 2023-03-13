@@ -38,9 +38,10 @@ const Event: React.FunctionComponent<{
   hideTitle,
   isFuture
 }) => {
-  const date =
-    (displayDate ?? formatDate(startDate) ?? "TBC") +
-    (!displayDate && endDate ? " - " + formatDate(endDate) : "");
+  const date = displayDate?.length ? 
+  displayDate :
+    ((formatDate(startDate) ?? "TBC") +
+    (endDate ? " - " + formatDate(endDate) : ""));
 
    const links = (isFuture? preMeetingLinks : postMeetingLinks) ?? [];
 
