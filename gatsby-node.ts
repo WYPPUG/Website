@@ -110,6 +110,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
                 frontmatter {
                   title
                   summary
+                  location
                   startDate
                   endDate
                   displayDate

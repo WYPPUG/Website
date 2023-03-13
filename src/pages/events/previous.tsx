@@ -43,6 +43,7 @@ query EventQuery {
           frontmatter {
             title
             summary
+            location
             startDate
             endDate
             displayDate

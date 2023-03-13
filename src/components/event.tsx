@@ -43,7 +43,7 @@ const Event: React.FunctionComponent<{
     ((formatDate(startDate) ?? "TBC") +
     (endDate ? " - " + formatDate(endDate) : ""));
 
-   const links = (isFuture? preMeetingLinks : postMeetingLinks) ?? [];
+   const links = url ? [{name: "More details", url: url}] : ((isFuture? preMeetingLinks : postMeetingLinks) ?? []);
 
   function getLinkStyles(url: string) {
     if (url) {
