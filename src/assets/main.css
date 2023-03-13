@@ -1,5 +1,25 @@
-@import "tailwindcss/base";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "tailwindcss/components";
+@layer base {
 
-@import "tailwindcss/utilities";
+    main h1 {
+      @apply text-2xl;
+    }
+    main h2 {
+      @apply text-xl;
+    }
+
+    main ul {
+      @apply list-disc list-inside;
+    }
+
+    main ol {
+      @apply list-decimal list-inside;
+    }
+
+    main a:not(.bg-blue-700) {
+      @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600;
+    }
+}
