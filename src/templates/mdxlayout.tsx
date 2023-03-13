@@ -2,7 +2,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { graphql, PageProps } from "gatsby";
 import React, { ReactNode } from "react";
 
-import Layout from "./layout";
+import Layout from "../components/layout";
 const MdxLayout: React.FunctionComponent<{
   pageContext: { title: string };
   children: ReactNode;

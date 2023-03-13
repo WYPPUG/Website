@@ -36,6 +36,7 @@ query EventQuery {
     edges {
       node {
         id
+        name
         childMdx {
           id
           isFuture
